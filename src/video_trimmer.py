@@ -11,7 +11,7 @@ class VideoTrimmer:
         try:
             for idx, video in self.video_list:
                 _path = video['path']
-                _seconds = video['seconds_to_remove']
+                _seconds = video['secondsToRemove']
                 self.logging.info(f'Item {idx} - Trimming {_seconds} from {_path}')
                 self._trim_video(video['path'], video['seconds_to_remove'], False)
         except Exception as err:

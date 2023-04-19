@@ -18,11 +18,16 @@ def health():
     return {'Message': 'Hello from VideoUtils'}
 
 
-@app.route('/trim_video/', methods=['POST'])
+@app.route('/trim_video', methods=['POST'])
 def trim_video():
-    event = _prepate_data(request.data)
-    vt = VideoTrimmer(logging, event)
-    vt.work_queue()
+    health()
+    try:
+        event = _prepate_data(request.data)
+        vt = VideoTrimmer(logging, event)
+        vt.work_queue()
+        return {'status': 200, 'Message': f'Successful Trim'}
+    except Exception as err:
+        return {'status': 400, 'Message': f'{err}'}
 
 
 if __name__ == '__main__':
