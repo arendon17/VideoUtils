@@ -20,7 +20,6 @@ def health():
 
 @app.route('/trim_video', methods=['POST'])
 def trim_video():
-    health()
     try:
         event = _prepate_data(request.data)
         vt = VideoTrimmer(logging, event)
