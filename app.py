@@ -21,7 +21,7 @@ def health():
 @app.route('/trim_video', methods=['POST'])
 def trim_video():
     try:
-        event = _prepate_data(request.data)
+        event = _prepate_data(request.json)
         vt = VideoTrimmer(logging, event)
         vt.work_queue()
         return {'status': 200, 'Message': f'Successful Trim'}
