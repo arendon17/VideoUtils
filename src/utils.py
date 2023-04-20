@@ -56,7 +56,7 @@ class Utils:
     @staticmethod
     def rename_file(filename, new_name=None, new_text_to_append=None):
         name_split = filename.split('.')
-        current_name = name_split[:-1]  # all but last item
+        current_name = name_split[:-1][0]  # all but last item
         file_extension = name_split[-1]  # last item -> file extension
         renamed_file = filename
         if new_name is not None:
